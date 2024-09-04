@@ -12,26 +12,60 @@ P = m / V
 printf("%.0lf", result) ;
 */
 
+// #include <stdio.h>
+// #include <math.h>
+// int main()
+// {
+//     double r = 0;
+//     char c = '0';
+//     if (scanf("%lf%c", &r, &c) == 2 && c == '\n' && r >= 0)
+//     {
+//         double v = (4 / 3) * M_PI * r * r * r;
+//         double p = 21500 / v;
+//         double result = round(p);
+//         printf("%.0lf", result);
+//     }
+//     else
+//         printf("n/a");
+//     return 0;
+// }
+
+// #include <stdio.h>
+// #include <math.h>
+// int main()
+// {
+//     double r = 0;
+//     double m = 21500;
+//     char c = '\n';
+//     scanf("%lf", &r);
+//     c = getchar();
+//     if (c != '\n')
+//     {
+//         printf("n/a");
+//     }
+//     else
+//     {
+//         double V = (4 / 3) * M_PI * r * r * r;
+//         double P = m / V;
+//         double result = round(P);
+//         printf("%.0lf", result);
+//     }
+//     return 0;
+// }
+
 #include <stdio.h>
 #include <math.h>
 
 int main()
 {
-    double r = 0;
-    double m = 21500;
-    char c = '\n';
-    scanf("%lf", &r);
-    c = getchar();
-    if (c != '\n')
-    {
-        printf("n/a");
-    }
-    else
+    double r = 0, m = 21500;
+    if (scanf("%lf", &r) == 1 && r > 0)
     {
         double V = (4 / 3) * M_PI * r * r * r;
-        double P = m / V;
-        double result = round(P);
+        double result = m / V;
         printf("%.0lf", result);
     }
+    else
+        printf("n/a");
     return 0;
 }

@@ -11,24 +11,40 @@
 -----------
 */
 
-#include <stdio.h>
+// #include <stdio.h>
+// int main()
+// {
+//     int num = 0;
+//     int max = 0;
+//     while (1)
+//     {
+//         char c = getchar();
+//         if (c >= '0' && c <= '9')
+//         {
+//             if ((c - '0') > max)
+//                 max = c - '0';
+//         }
+//         if (c == '\n')
+//             break;
+//     }
+//     printf("%d", max);
+//     return 0;
+// }
 
-int main()
-{
-    int num = 0;
-    int max = 0;
-    while (1)
-    {
-        char c = getchar();
-        if (c >= '0' && c <= '9')
-        {
-            if ((c - '0') > max)
-                max = c - '0';
-        }
-        if (c == '\n')
-            break;
-    }
+// #include <stdio.h>
 
-    printf("%d", max);
-    return 0;
-}
+// int main()
+// {
+//     char c = '0';
+//     int max = 0;
+//     while (1)
+//     {
+//         c = getchar();
+//         if (c == '\n')
+//             break;
+//         if (c > '0' && c < '9' && (c - '0') > max)
+//             max = c - '0';
+//     }
+//     printf("%d", max);
+//     return 0;
+// }

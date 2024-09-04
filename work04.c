@@ -13,17 +13,53 @@
 
 int main()
 {
-    char x = '0', y = '0', z = '0';
-    scanf("%c%c%c", &x, &y, &z);
-    if (x != '0' && x != '1' && y != '0' && y != '1' && z != '0' && z != '1')
+    char x = '0', y = '0', z = '0', end = '0';
+    int flag = 0;
+    while (1)
     {
-        printf("n/a");
+        scanf("%c%c%c%c", &x, &y, &z, &end);
+        if ((x < '0' || x > '9') || (y < '0' || y > '9') || (z < '0' || z > '9'))
+            flag = 1;
+        if (end == '\n' || flag)
+            break;
     }
+    if (flag)
+        printf("n/a");
     else
     {
-        int ix = x - '0', iy = y - '0', iz = z - '0';
-        printf("%d", ix && (iz || iy));
+        printf("%d", (x - '0') && ((z - '0') || (y - '0')));
     }
-
     return 0;
 }
+
+// #include <stdio.h>
+// int main()
+// {
+//     char x = '0', y = '0', z = '0';
+//     scanf("%c%c%c", &x, &y, &z);
+//     if (x != '0' && x != '1' && y != '0' && y != '1' && z != '0' && z != '1')
+//     {
+//         printf("n/a");
+//     }
+//     else
+//     {
+//         int ix = x - '0', iy = y - '0', iz = z - '0';
+//         printf("%d", ix && (iz || iy));
+//     }
+//     return 0;
+// }
+
+// #include <stdio.h>
+
+// int main()
+// {
+//     char x = '0', y = '0', z = '0';
+//     if (scanf("%c%c%c", &x, &y, &z) && (x == '0' || x == '1') && (y == '0' || y == '1') && (z == '0' || z == '1'))
+//     {
+//         printf("%d", (x - '0') && ((z - '0') || (y - '0')));
+//     }
+//     else
+//         printf("n/a");
+
+//     return 0;
+// }

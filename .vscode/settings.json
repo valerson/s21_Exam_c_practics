@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "__bit_reference": "c",
-        "bitset": "c"
+        "bitset": "c",
+        "__locale": "c"
     }
 }
