@@ -13,36 +13,29 @@
 */
 #include <stdio.h>
 
-int main()
-{
-    float number = 0;
-    char c = '0';
-    int flag = 0, count = 0, result = 1;
-    while (1)
-    {
-        if (scanf("%f", &number) == 1 && (int)number == number)
-        {
-            if ((int)number % 2 != 0)
-            {
-                result *= number;
-            }
-            count++;
-        }
-        else
-            flag = 1;
-        if ((c = getchar()) == '\n' || flag)
-            break;
-    }
-    if (flag)
-        printf("n/a");
+int main() {
+  float number = 0;
+  char c = '0';
+  int flag = 0, count = 0, result = 1;
+  while (1) {
+    if (scanf("%f", &number) == 1 && (int)number == number) {
+      if ((int)number % 2 != 0) {
+        result *= number;
+      }
+      count++;
+    } else
+      flag = 1;
+    if ((c = getchar()) == '\n' || flag) break;
+  }
+  if (flag)
+    printf("n/a");
+  else {
+    if (count == 2)
+      printf("0");
     else
-    {
-        if (count == 2)
-            printf("0");
-        else
-            printf("%d", result < 0 ? -result : result);
-    }
-    return 0;
+      printf("%d", result < 0 ? -result : result);
+  }
+  return 0;
 }
 
 // #include <stdio.h>
@@ -96,7 +89,8 @@ int main()
 
 //     while (1)
 //     {
-//         if (scanf("%f%c", &number, &c) == 2 && (int)number == number && (c == ' ' || c == '\n'))
+//         if (scanf("%f%c", &number, &c) == 2 && (int)number == number && (c ==
+//         ' ' || c == '\n'))
 //         {
 //             if (number != -1)
 //             {

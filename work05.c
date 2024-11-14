@@ -6,29 +6,23 @@
 
 #include <stdio.h>
 
-int main()
-{
-    int num = 0, count = 0;
-    int arr[10000] = {0};
-    while (1)
-    {
-        scanf("%d", &num);
-        getchar();
-        if (num == -1)
-            break;
-        arr[count] = num;
-        count++;
-    }
-    for (int i = 0; i < count / 2; i++)
-    {
-        printf("%d %d", arr[i], arr[count - 1 - i]);
-        if (i < count / 2 - 1)
-            printf(" ");
-    }
-    if (count % 2 != 0)
-        printf(" %d", arr[count / 2]);
+int main() {
+  int num = 0, count = 0;
+  int arr[10000] = {0};
+  while (1) {
+    scanf("%d", &num);
+    getchar();
+    if (num == -1) break;
+    arr[count] = num;
+    count++;
+  }
+  for (int i = 0; i < count / 2; i++) {
+    printf("%d %d", arr[i], arr[count - 1 - i]);
+    if (i < count / 2 - 1) printf(" ");
+  }
+  if (count % 2 != 0) printf(" %d", arr[count / 2]);
 
-    return 0;
+  return 0;
 }
 
 // #include <stdio.h>

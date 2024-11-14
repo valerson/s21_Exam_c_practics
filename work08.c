@@ -2,68 +2,57 @@
 Задание №3
 Дается натуральное число Даются данные для заполнения Н структур
 Структура состоит из имени (str) фамилия (str) рост int
-После дается 1 положительное целое число и нужно вывести в строчку через запятую фамилии и
-имена чей рост выше какого то значения
+После дается 1 положительное целое число и нужно вывести в строчку через запятую
+фамилии и имена чей рост выше какого то значения
 */
 
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct
-{
-    char name[100];
-    char surname[100];
-    int height;
+typedef struct {
+  char name[100];
+  char surname[100];
+  int height;
 } work;
 
-int main()
-{
-    float n = 0, h = 0;
-    char c1 = '0', c2 = '0', c = '0';
+int main() {
+  float n = 0, h = 0;
+  char c1 = '0', c2 = '0', c = '0';
 
-    if (scanf("%f%c%f%c", &n, &c1, &h, &c2) == 4 && (int)n == n && n > 0 && h > 0 && (c1 == ' ' || c1 == '\n') && c2 == '\n')
-    {
-        work *students = malloc(n * sizeof(work));
+  if (scanf("%f%c%f%c", &n, &c1, &h, &c2) == 4 && (int)n == n && n > 0 &&
+      h > 0 && (c1 == ' ' || c1 == '\n') && c2 == '\n') {
+    work *students = malloc(n * sizeof(work));
 
-        for (int i = 0; i < n; i++)
-        {
-            int j = 0;
-            while (1)
-            {
-                c = getchar();
-                if (c == '\n')
-                    break;
-                students[i].name[j] = c;
-                j++;
-            }
-            j = 0;
-            while (1)
-            {
-                c = getchar();
-                if (c == '\n')
-                    break;
-                students[i].surname[j] = c;
-                j++;
-            }
-            scanf("%d%c", &students[i].height, &c);
-        }
-        int count = 0;
-        for (int i = 0; i < n; i++)
-        {
-            if (count)
-                printf(", ");
-            if (students[i].height > h)
-            {
-                printf("%s %s", students[i].name, students[i].surname);
-                count++;
-            }
-        }
-
-        free(students);
+    for (int i = 0; i < n; i++) {
+      int j = 0;
+      while (1) {
+        c = getchar();
+        if (c == '\n') break;
+        students[i].name[j] = c;
+        j++;
+      }
+      j = 0;
+      while (1) {
+        c = getchar();
+        if (c == '\n') break;
+        students[i].surname[j] = c;
+        j++;
+      }
+      scanf("%d%c", &students[i].height, &c);
     }
-    else
-        printf("n/a");
-    return 0;
+    int count = 0;
+    for (int i = 0; i < n; i++) {
+      if (count) printf(", ");
+      if (students[i].height > h) {
+        printf("%s %s", students[i].name, students[i].surname);
+        count++;
+      }
+    }
+
+    free(students);
+  } else
+    printf("n/a");
+  return 0;
 }
 
 // #include <stdio.h>

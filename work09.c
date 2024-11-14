@@ -1,74 +1,65 @@
 /*
 Задание №3
 На вход подается последовательность из чисел которая заканчивается -1
-Задача - поменять местами первый появляющийся в последовательности наибольший и наименьший элемент
-из целых неотрицательных чисел
-Проверить валидность данных
+Задача - поменять местами первый появляющийся в последовательности наибольший и
+наименьший элемент из целых неотрицательных чисел Проверить валидность данных
 */
 
 #include <stdio.h>
 
-int main()
-{
-    int arr[10000] = {0};
-    int i = 0, flag = 0, imax = 0, imin = 0;
-    char c = '0';
-    float number = 0;
-    if (scanf("%f%c", &number, &c) != 2 || (int)number != number || (number < 0 && number != -1))
+int main() {
+  int arr[10000] = {0};
+  int i = 0, flag = 0, imax = 0, imin = 0;
+  char c = '0';
+  float number = 0;
+  if (scanf("%f%c", &number, &c) != 2 || (int)number != number ||
+      (number < 0 && number != -1))
+    flag = 1;
+  else if (number != -1) {
+    // do
+    int max = (int)number;
+    int min = (int)number;
+    arr[i] = (int)number;
+    i++;
+
+    while (1) {
+      if (scanf("%f%c", &number, &c) != 2 && (int)number != number &&
+          (number < 0 && number != -1))
         flag = 1;
-    else if (number != -1)
-    {
-        // do
-        int max = (int)number;
-        int min = (int)number;
-        arr[i] = (int)number;
-        i++;
 
-        while (1)
-        {
-            if (scanf("%f%c", &number, &c) != 2 && (int)number != number && (number < 0 && number != -1))
-                flag = 1;
+      if (number == -1 || flag) break;
 
-            if (number == -1 || flag)
-                break;
+      // do
 
-            // do
-
-            if (number > max)
-            {
-                max = number;
-                imax = i;
-            }
-            if (number < min)
-            {
-                min = number;
-                imin = i;
-            }
-            arr[i] = (int)number;
-            i++;
-        }
-        if (flag)
-            printf("n/a");
-        else
-        {
-            // do
-            int bufer = arr[imax];
-            arr[imax] = arr[imin];
-            arr[imin] = bufer;
-
-            for (int j = 0; j < i; j++)
-            {
-                printf("%d", arr[j]);
-                if (j < i - 1)
-                    printf(" ");
-            }
-        }
+      if (number > max) {
+        max = number;
+        imax = i;
+      }
+      if (number < min) {
+        min = number;
+        imin = i;
+      }
+      arr[i] = (int)number;
+      i++;
     }
-
     if (flag)
-        printf("n/a");
+      printf("n/a");
+    else {
+      // do
+      int bufer = arr[imax];
+      arr[imax] = arr[imin];
+      arr[imin] = bufer;
 
-    return 0;
+      for (int j = 0; j < i; j++) {
+        printf("%d", arr[j]);
+        if (j < i - 1) printf(" ");
+      }
+    }
+  }
+
+  if (flag) printf("n/a");
+
+  return 0;
 }
 
 // #include <stdio.h>

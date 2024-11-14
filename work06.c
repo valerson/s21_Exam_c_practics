@@ -12,62 +12,52 @@ This is text
 #include <stdio.h>
 #include <string.h>
 
-char *strstr_last(char *str_1, char *str_2)
-{
-    char *result = str_1;
-    char *temp = strstr(str_1, str_2);
-    int n = strlen(str_2);
-    while (1)
-    {
-        temp = strstr(str_1, str_2);
-        if (temp == NULL)
-            break;
+char *strstr_last(char *str_1, char *str_2) {
+  char *result = str_1;
+  char *temp = strstr(str_1, str_2);
+  int n = strlen(str_2);
+  while (1) {
+    temp = strstr(str_1, str_2);
+    if (temp == NULL) break;
 
-        result = temp;
-        str_1 += n;
-    }
+    result = temp;
+    str_1 += n;
+  }
 
-    return result;
+  return result;
 }
 
-int main()
-{
-    char str_1[2048] = {0};
-    char str_2[2048] = {0};
-    char c = '0';
-    int i = 0;
-    while (1)
-    {
-        c = getchar();
-        if (c == '\n')
-            break;
-        str_1[i] = c;
-        i++;
-    }
-    i = 0;
-    while (1)
-    {
-        c = getchar();
-        if (c == '\n')
-            break;
-        str_2[i] = c;
-        i++;
-    }
-    // printf("%s", strstr_last(str_1, str_2));
+int main() {
+  char str_1[2048] = {0};
+  char str_2[2048] = {0};
+  char c = '0';
+  int i = 0;
+  while (1) {
+    c = getchar();
+    if (c == '\n') break;
+    str_1[i] = c;
+    i++;
+  }
+  i = 0;
+  while (1) {
+    c = getchar();
+    if (c == '\n') break;
+    str_2[i] = c;
+    i++;
+  }
+  // printf("%s", strstr_last(str_1, str_2));
 
-    char *p_str_1 = str_1;
-    for (int i = 0; i < strlen(str_1); i++)
-    {
-        if (p_str_1 == strstr_last(str_1, str_2))
-            p_str_1 += strlen(str_2);
-        else
-        {
-            printf("%c", *p_str_1);
-            p_str_1 += 1;
-        }
+  char *p_str_1 = str_1;
+  for (int i = 0; i < strlen(str_1); i++) {
+    if (p_str_1 == strstr_last(str_1, str_2))
+      p_str_1 += strlen(str_2);
+    else {
+      printf("%c", *p_str_1);
+      p_str_1 += 1;
     }
+  }
 
-    return 0;
+  return 0;
 }
 
 // #include <stdio.h>
@@ -86,10 +76,9 @@ int main()
 // }
 // int main()
 // {
-//     char str1[2048] = "", str2[2048] = "", new_str1[2048] = "", new_str2[2048] = "";
-//     char c = '0';
-//     int i_str1 = 0, i_str2 = 0;
-//     for (int i = 0; c != '\n'; i++)
+//     char str1[2048] = "", str2[2048] = "", new_str1[2048] = "",
+//     new_str2[2048] = ""; char c = '0'; int i_str1 = 0, i_str2 = 0; for (int i
+//     = 0; c != '\n'; i++)
 //     {
 //         c = getchar();
 //         if (c != '\n')
@@ -186,10 +175,9 @@ int main()
 
 // int main()
 // {
-//     char str1[2048] = {0}, str2[2048] = {0}, new_str1[2048] = {0}, new_str2[2048] = {0}, result[2048] = {0};
-//     char c = '0';
-//     int i = 0, flag = 0;
-//     while (1)
+//     char str1[2048] = {0}, str2[2048] = {0}, new_str1[2048] = {0},
+//     new_str2[2048] = {0}, result[2048] = {0}; char c = '0'; int i = 0, flag =
+//     0; while (1)
 //     {
 //         c = getchar();
 //         if (c == '\n')

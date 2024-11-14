@@ -53,19 +53,16 @@ printf("%.0lf", result) ;
 //     return 0;
 // }
 
-#include <stdio.h>
 #include <math.h>
+#include <stdio.h>
 
-int main()
-{
-    double r = 0, m = 21500;
-    if (scanf("%lf", &r) == 1 && r > 0)
-    {
-        double V = (4 / 3) * M_PI * r * r * r;
-        double result = m / V;
-        printf("%.0lf", result);
-    }
-    else
-        printf("n/a");
-    return 0;
+int main() {
+  double r = 0, m = 21500;
+  if (scanf("%lf", &r) == 1 && r > 0) {
+    double V = (4 / 3) * M_PI * r * r * r;
+    double result = m / V;
+    printf("%.0lf", result);
+  } else
+    printf("n/a");
+  return 0;
 }

@@ -7,67 +7,52 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-int main()
-{
-    float n = 0;
-    int number = 1;
-    if (scanf("%f", &n) == 1 && (int)n == n && n > 0)
-    {
-        int **matrix = calloc(n, sizeof(int *));
-        for (int i = 0; i < n; i++)
-            matrix[i] = calloc(n, sizeof(int));
+int main() {
+  float n = 0;
+  int number = 1;
+  if (scanf("%f", &n) == 1 && (int)n == n && n > 0) {
+    int **matrix = calloc(n, sizeof(int *));
+    for (int i = 0; i < n; i++) matrix[i] = calloc(n, sizeof(int));
 
-        for (int k = 0; k < n / 2; k++)
-        {
-            // right
-            for (int i = k; i < n - 1 - k; i++)
-            {
-                matrix[k][i] = number;
-                number++;
-            }
-            // down
-            for (int i = k; i < n - 1 - k; i++)
-            {
-                matrix[i][(int)n - 1 - k] = number;
-                number++;
-            }
-            // left
-            for (int i = n - 1 - k; i > k; i--)
-            {
-                matrix[(int)n - 1 - k][i] = number;
-                number++;
-            }
-            // up
-            for (int i = n - 1 - k; i > k; i--)
-            {
-                matrix[i][k] = number;
-                number++;
-            }
-        }
-        if ((int)n % 2 != 0)
-            matrix[(int)n / 2][(int)n / 2] = number;
-
-        // print
-        for (int i = 0; i < n; i++)
-        {
-            for (int j = 0; j < n; j++)
-            {
-                printf("%d", matrix[i][j]);
-                if (j < n - 1)
-                    printf(" ");
-            }
-            if (i < n - 1)
-                printf("\n");
-        }
-
-        for (int i = 0; i < n; i++)
-            free(matrix[i]);
-        free(matrix);
+    for (int k = 0; k < n / 2; k++) {
+      // right
+      for (int i = k; i < n - 1 - k; i++) {
+        matrix[k][i] = number;
+        number++;
+      }
+      // down
+      for (int i = k; i < n - 1 - k; i++) {
+        matrix[i][(int)n - 1 - k] = number;
+        number++;
+      }
+      // left
+      for (int i = n - 1 - k; i > k; i--) {
+        matrix[(int)n - 1 - k][i] = number;
+        number++;
+      }
+      // up
+      for (int i = n - 1 - k; i > k; i--) {
+        matrix[i][k] = number;
+        number++;
+      }
     }
-    else
-        printf("n/a");
+    if ((int)n % 2 != 0) matrix[(int)n / 2][(int)n / 2] = number;
 
-    return 0;
+    // print
+    for (int i = 0; i < n; i++) {
+      for (int j = 0; j < n; j++) {
+        printf("%d", matrix[i][j]);
+        if (j < n - 1) printf(" ");
+      }
+      if (i < n - 1) printf("\n");
+    }
+
+    for (int i = 0; i < n; i++) free(matrix[i]);
+    free(matrix);
+  } else
+    printf("n/a");
+
+  return 0;
 }
 
 // #include <stdio.h>
